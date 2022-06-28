@@ -18,8 +18,15 @@ export const TransactionHistory = ({ items }) => {
       </TransactionListNameContainer>
 
       <tbody>
-        {items.map(item => {
-          return <TransactionHistoryItem key={item.id} item={item} />;
+        {items.map(({ id, type, amount, currency }) => {
+          return (
+            <TransactionHistoryItem
+              key={id}
+              type={type}
+              amount={amount}
+              currency={currency}
+            />
+          );
         })}
       </tbody>
     </TransactionHistoryList>

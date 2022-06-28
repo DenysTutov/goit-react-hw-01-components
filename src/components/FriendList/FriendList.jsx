@@ -5,8 +5,15 @@ import { FriendListItem } from './FriendListItem';
 export const FriendList = ({ friends }) => {
   return (
     <FriendListContainer>
-      {friends.map(friend => {
-        return <FriendListItem key={friend.id} friend={friend} />;
+      {friends.map(({ id, isOnline, avatar, name }) => {
+        return (
+          <FriendListItem
+            key={id}
+            isOnline={isOnline}
+            avatar={avatar}
+            name={name}
+          />
+        );
       })}
     </FriendListContainer>
   );
@@ -14,6 +21,6 @@ export const FriendList = ({ friends }) => {
 
 FriendList.propTypes = {
   friends: PropTypes.arrayOf(
-    PropTypes.shape({ id: PropTypes.number.isRequired }),
+    PropTypes.shape({ id: PropTypes.number.isRequired })
   ),
 };

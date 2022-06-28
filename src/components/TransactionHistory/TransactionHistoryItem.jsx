@@ -4,9 +4,7 @@ import {
   TransactionItem,
 } from './TransactionHistory.styled';
 
-export const TransactionHistoryItem = ({
-  item: { type, amount, currency },
-}) => {
+export const TransactionHistoryItem = ({ type, amount, currency }) => {
   return (
     <TransactionItemContainer>
       <TransactionItem>{type}</TransactionItem>
@@ -17,9 +15,7 @@ export const TransactionHistoryItem = ({
 };
 
 TransactionHistoryItem.propTypes = {
-  item: PropTypes.shape({
-    type: PropTypes.string.isRequired,
-    amount: PropTypes.string.isRequired,
-    currency: PropTypes.string.isRequired,
-  }),
+  type: PropTypes.string.isRequired,
+  amount: PropTypes.string.isRequired,
+  currency: PropTypes.string.isRequired,
 };
