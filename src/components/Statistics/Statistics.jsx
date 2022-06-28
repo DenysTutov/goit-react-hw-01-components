@@ -14,11 +14,11 @@ export const Statistics = ({ title, stats }) => {
       {title && <Title>{title}</Title>}
 
       <StatList>
-        {stats.map(stat => {
+        {stats.map(({ id, label, percentage }) => {
           return (
-            <Item key={stat.id}>
-              <Label>{stat.label}</Label>
-              <Percentage>{stat.percentage}%</Percentage>
+            <Item key={id}>
+              <Label>{label}</Label>
+              <Percentage>{percentage}%</Percentage>
             </Item>
           );
         })}
@@ -32,8 +32,8 @@ Statistics.propTypes = {
   stats: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string.isRequired,
-      label: PropTypes.string,
-      percentage: PropTypes.number,
-    }),
-  ).isRequired,
+      label: PropTypes.string.isRequired,
+      percentage: PropTypes.number.isRequired,
+    })
+  ),
 };

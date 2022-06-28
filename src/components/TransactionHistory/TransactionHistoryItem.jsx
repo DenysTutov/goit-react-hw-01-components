@@ -4,12 +4,14 @@ import {
   TransactionItem,
 } from './TransactionHistory.styled';
 
-export const TransactionHistoryItem = ({ item }) => {
+export const TransactionHistoryItem = ({
+  item: { type, amount, currency },
+}) => {
   return (
     <TransactionItemContainer>
-      <TransactionItem>{item.type}</TransactionItem>
-      <TransactionItem>{item.amount}</TransactionItem>
-      <TransactionItem>{item.currency}</TransactionItem>
+      <TransactionItem>{type}</TransactionItem>
+      <TransactionItem>{amount}</TransactionItem>
+      <TransactionItem>{currency}</TransactionItem>
     </TransactionItemContainer>
   );
 };

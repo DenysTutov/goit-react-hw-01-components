@@ -12,7 +12,13 @@ import {
   StatsQuantity,
 } from './Profile.styled';
 
-export const Profile = ({ username, tag, location, avatar, stats }) => {
+export const Profile = ({
+  username,
+  tag,
+  location,
+  avatar,
+  stats: { followers, views, likes },
+}) => {
   return (
     <ProfileContainer>
       <Description>
@@ -25,15 +31,15 @@ export const Profile = ({ username, tag, location, avatar, stats }) => {
       <Stats>
         <StatsItem>
           <StatsLabel>Followers</StatsLabel>
-          <StatsQuantity>{stats.followers}</StatsQuantity>
+          <StatsQuantity>{followers}</StatsQuantity>
         </StatsItem>
         <StatsItem>
           <StatsLabel>Views</StatsLabel>
-          <StatsQuantity>{stats.views}</StatsQuantity>
+          <StatsQuantity>{views}</StatsQuantity>
         </StatsItem>
         <StatsItem>
           <StatsLabel>Likes</StatsLabel>
-          <StatsQuantity>{stats.likes}</StatsQuantity>
+          <StatsQuantity>{likes}</StatsQuantity>
         </StatsItem>
       </Stats>
     </ProfileContainer>
@@ -45,5 +51,9 @@ Profile.propTypes = {
   tag: PropTypes.string,
   location: PropTypes.string,
   avatar: PropTypes.string,
-  stats: PropTypes.objectOf(PropTypes.number.isRequired),
+  stats: PropTypes.shape({
+    followers: PropTypes.number.isRequired,
+    views: PropTypes.number.isRequired,
+    likes: PropTypes.number.isRequired,
+  }),
 };
